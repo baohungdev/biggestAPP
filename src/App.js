@@ -5,7 +5,10 @@ import ShopPage from "./pages/shop/shop.component";
 import SignIn from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/header/header.component";
-import { auth } from "./components/firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+} from "./components/firebase/firebase.utils";
 
 class App extends Component {
   constructor() {
@@ -20,7 +23,7 @@ class App extends Component {
   componentDidMount() {
     this.unsubcribeFormAuth = auth.onAuthStateChanged((user) => {
       this.setState({ currentUser: user });
-      console.log(this.state);
+      createUserProfileDocument(user);
     });
   }
 
