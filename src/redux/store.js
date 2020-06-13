@@ -4,8 +4,9 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import rootReducer from "./root-reducer";
+import logger from "redux-logger";
 
-const middlewares = [];
+const middlewares = [logger];
 
 const persistConfig = {
   key: "root",
@@ -21,4 +22,5 @@ export let store = createStore(
   persistedReducer,
   applyMiddleware(...middlewares)
 );
+
 export let persistor = persistStore(store);
