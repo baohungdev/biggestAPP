@@ -2,7 +2,7 @@ import React from "react";
 
 import MenuItem from "../menu-item/menu-item.component";
 
-import "./directory.styles.scss";
+import { DirectoryContainer } from "./directory.styles.jsx";
 
 class Directory extends React.Component {
   constructor() {
@@ -48,11 +48,11 @@ class Directory extends React.Component {
 
   render() {
     return (
-      <div className="directory-menu">
+      <DirectoryContainer>
         {this.state.sections.map(({ id, ...otherSectionProps }) => (
           <MenuItem key={id} {...otherSectionProps} />
         ))}
-      </div>
+      </DirectoryContainer>
     );
   }
 }

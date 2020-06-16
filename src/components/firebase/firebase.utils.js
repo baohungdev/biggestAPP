@@ -17,12 +17,29 @@ const firebaseConfig = {
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
+  // if userAuth doesn't exsist return
 
   const userRef = firestore.doc(`users/${userAuth.uid}`);
+  // console.log(userRef);
+  // queryDoc the users at uid of userAuth of props pass from Parent
 
   const snapShot = await userRef.get();
+  // console.log(snapShot.data());
+  // get snapshot obj of data from the doc
+
+  // const collectionRef = firestore.collection("users");
+  // // require a collection name users
+  // const collectionSnapshot = await collectionRef.get();
+  // // wait to get that collection from the database
+  // const myCollection = collectionSnapshot.docs.map((user) => user.data());
+  // //take the data from collectionSnap that we require
+
+  // console.log(myCollection);
+  // // write out all the users that are inside my database
 
   if (!snapShot.exists) {
+    // snapshot give a prop of exists of the snapshot that we got from the query requsest, if the snapshot dont exsists, we create that user.
+
     const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {
@@ -38,6 +55,39 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
 
   return userRef;
+};
+
+export const addCollectionsAndDocumentsToDatabase = async (
+  collectionKey,
+  objectToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey);
+  // Creata a new collection Ref at collectionKey
+  const batch = firestore.batch();
+
+  objectToAdd.forEach((element) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, element);
+  });
+  return await batch.commit();
+};
+
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollections = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+
+  return transformedCollections.reduce((acc, collection) => {
+    acc[collection.title.toLowerCase()] = collection;
+    return acc;
+  }, {});
 };
 firebase.initializeApp(firebaseConfig);
 
