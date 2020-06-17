@@ -5,8 +5,9 @@ import storage from "redux-persist/lib/storage";
 
 import rootReducer from "./root-reducer";
 import logger from "redux-logger";
+import thunk from "redux-thunk";
 
-const middlewares = [logger];
+const middlewares = [logger, thunk];
 
 const persistConfig = {
   key: "root",
