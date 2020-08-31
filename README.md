@@ -1,20 +1,55 @@
-## Lesson-3
+<h3 align="center">Crown Clothing</h3>
 
-Going through our folder structure for the project, breaking out homepage component into smaller components
+<div align="center">
 
-# How to fork and clone
+[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/hung-duong-7382741a7/)
+[![Gmail](https://img.shields.io/badge/-Gmail-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:baohungdev@icloud.com)
 
-One quick note about cloning this project. If you wish to make commits and push the code up after cloning this repo, you should fork the project first. In order to own your own copy of this repository, you have to fork it so you get your own copy on your own profile!
+</div>
 
-You can see the fork button in the top right corner of every GitHub project; click it and a copy of the project will be added to your GitHub profile under the same name as the original project.
+![Screen shot](/public/homepage.png)
+![Screen shot](/public/shoppage.png)
 
-![alt text](https://i.ibb.co/1YN7SJ6/Screen-Shot-2019-07-01-at-2-02-40-AM.png "image to fork button")
+## What this App does?
 
-After forking the project, simply clone it the way you would from the new forked project in your own GitHub repository and you can commit and push to it freely!
+- By this app, you will be able to:
 
+  - Shopping and checkout with Stripe.
 
-# After you fork and clone:
+## Built with
 
-## Install dependencies
+- React
+- Redux
+- Firebase
+- Styled-components
 
-In your terminal after you clone your project down, remember to run either `yarn` or `npm install` to build all the dependencies in the project.
+## Setup
+
+- Clone the repository
+- Use `cd <repository-path>`
+- Run `yarn` or `npm i`
+- Run `yarn dev` or `npm run dev`
+
+## Author
+
+Duong Bao Hung
+
+- Github: [@baohungdev](https://github.com/baohungdev)
+
+- LinkedIn: [Duong Bao Hung](https://www.linkedin.com/in/hung-duong-7382741a7/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome! Start by:
+
+- Forking the project
+- Cloning the project to your local machine
+- `cd` into the project directory
+- Run `git checkout -b your-branch-name`
+- Make your contributions
+- Push your branch up to your forked repository
+- Open a Pull Request with a detailed description to the development branch of the original project for a review
+
+## Show your support
+
+Give a ⭐️ if you like this project!
